@@ -1,0 +1,13 @@
+@charset "utf-8";
+.vui-tips {
+	position:absolute;
+	background:#fff;
+	padding:10px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	box-shadow:0 0 1px #000;
+	-moz-box-shadow:0 0 1px #000;
+	-webkit-box-shadow:0 0 1px #000
+}

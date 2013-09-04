@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>VUI TIPS</title>
+<link rel="stylesheet" type="text/css" href="../../css/basic.css" />
+<link rel="stylesheet" type="text/css" href="../css/vui.tips.css" />
+<style type="text/css">
+body {
+	font-size:12px
+}
+#tips {
+	padding:100px 50px
+}
+#tips p {
+	float:left;
+	padding:10px 0;
+	border:#f60 1px dashed;
+	height:24px;
+	line-height:24px;
+	margin-right:10px
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript" src="../jquery/jquery.vui.tips.js"></script>
+</head>
+
+<body>
+
+
+<div id="tips" class="clearfix">
+	<p j_tips="title:帮助小贴士|content:这里收集了Bootstrap从V1.0.0版本到现在，整个文档的历史。Bootstrap本身就是一个传奇，而这些文档就是传奇的见证！|placement:e|width:250px">右侧显示</p>
+	<p j_tips="Bootstrap本身就是一个传奇|placement:n">上方显示</p>
+    <p j_tips="Bootstrap本身就是一个传奇|placement:s">下方显示</p>
+    <p j_tips="Bootstrap本身就是一个传奇">默认为下方显示</p>
+    <p j_tips="title:帮助小贴士|content:这里收集了Bootstrap从V1.0.0版本到现在，整个文档的历史。Bootstrap本身就是一个传奇，而这些文档就是传奇的见证！|width:250px">带标题，定义宽度</p>
+	<p j_tips="Bootstrap本身就是一个传奇|fontSize:18px">定义字号</p>
+    <p j_tips="title:帮助小贴士|content:这里收集了Bootstrap从V1.0.0版本到现在，整个文档的历史。Bootstrap本身就是一个传奇，而这些文档就是传奇的见证！|placement:w|width:250px">左侧显示</p>
+
+	<p style="clear:both;padding:200px;margin-top:20px;" j_tips="title:帮助小贴士|content:这里收集了Bootstrap从V1.0.0版本到现在，整个文档的历史。Bootstrap本身就是一个传奇，而这些文档就是传奇的见证！|followMouse|width:250px">跟随鼠标</p>
+</div>
+
+<div style="clear:both;padding:0 50px 50px;">
+    <p>调用方法： </p>
+    <p>&nbsp;</p>
+    <p>html：添加属性：</p>
+    <p>j_tips=&quot;title:标题|content:内容|followMouse|width:宽度|fontSize:字号|placement:显示方向&quot;    </p>
+    <p>属性之间用|隔开，无先后顺序。"content:内容"中，前面的"content:"可以省略</p>
+    <p>只有content是必须的，所有最简单的调用方式是 j_tips=&quot;提示内容&quot;即可</p>
+    <p>&nbsp;</p>
+    <p>JS调用</p>
+    <p>&nbsp;</p>
+    <p>VUI.tips(elem, option);</p>
+    <p>&nbsp;</p>
+    <p>option用做高级自定义，如果不需要，通常省略。</p>
+    <p>&nbsp;</p>
+    <p>elem可以是一个dom对象，也可以是一个dom对象的数组，也可以是CSS选择器（类似jquery）。会根据传入参数的类型自动进行判断</p>
+    <p>&nbsp;</p>
+    <p>例如本演示中的例子是：</p>
+    <p>VUI.tips('#tips p');    </p>
+    <p>&nbsp;</p>
+    <p><strong>附：高级自定义</strong></p>
+    <p>&nbsp;</p>
+    <p>通过option参数可以对tip提示进行更深的自定义，所有VUI.tips.defaults对象的属性和方法都可以在这里进行重写</p>
+    <p>&nbsp;</p>
+    <p>优先级： j_tips属性 &gt; option参数 &gt; VUI.tips.defaults</p>
+    <p>&nbsp;</p>
+    <p>例如    </p>
+    <p>&nbsp;</p>
+    <p>VUI.tips(elem, {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;skin: '皮肤', //为提示框加上vui-tips-skin的classname，方便定义不同样式</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;tpl: function(){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var _tpl = '&lt;em&gt;.&lt;/em&gt;&lt;div class=&quot;vui-tips-cntr&quot;&gt;&lt;/div&gt;'; //例如需要箭头指示，可以这样自定义模板，再建立css样式</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return _tpl;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;//你还可以照这样重新定义show\hide方法以便加上动画过渡，或者重新定义setContent方法添加按钮，或者重新定义events方法修改相关事件处理机制，whatever you want.</p>
+    <p>});</p>
+</div>
+
+
+
+<script type="text/javascript">
+// 测试
+
+$.VUItips('#tips p');
+
+</script>
+</body>
+</html>

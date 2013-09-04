@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>VUI DIALOG & AJAX</title>
+<link rel="stylesheet" type="text/css" href="../../css/basic.css" />
+<link rel="stylesheet" type="text/css" href="../css/vui.dialog.css" />
+<style type="text/css">
+body {
+	font-size:12px
+}
+#dialog {
+	padding:100px 50px
+}
+#dialog p {
+	padding:10px 0;
+}
+</style>
+<script type="text/javascript" src="../src/vui.core.min.js"></script>
+<script type="text/javascript" src="../src/vui.ajax.min.js"></script>
+<script type="text/javascript" src="../src/vui.dialog.min.js"></script>
+</head>
+
+<body>
+
+
+<div id="dialog" class="clearfix">
+<p><a href="javascript:void(0);" title="烦人的对话框">信息提示演示</a></p>
+<p><a href="javascript:void(0);" title="AJAX请求的对话框">AJAX读取内容</a></p>
+<p><a href="javascript:void(0);" title="get请求的对话框">使用VUI.get()预先读取对话框内容再显示</a></p>
+</div>
+
+<div style="clear:both;padding:0 50px 50px;">
+    <p>VUI.dialog()调用方法： </p>
+    <p>&nbsp;</p>
+<pre>
+var mydialog = VUI.dialog({
+    //基本参数
+    title: '对话框标题', //对话框标题
+    mask: 'yes', //使用遮罩
+    id: '', //指定id，如果需要的话
+    skin: '', //指定皮肤
+    padding: '', //填充，默认为10px
+    width: 'auto', //宽度
+    
+    //内容
+    clone: '', //将文档中的元素拷贝一份到对话框
+    append: '', //将文档中的元移动到对话框
+    //以上两个选项支持使用Sizzle css选择器（类似jquery），并会放弃以下所有内容选项
+    source: '', //AJAX读取内容，会放弃以下所有内容选项
+    icon: 'alert', //使用icon图标，可选ok/alert/error
+    iconVlign: 'middle', //图标对齐方式，默认为middle，可选top/bottom
+    content: '修改失败，请重新输入或联系管理员！', //对话框内容，支持HTML
+    fontSize: '14px', //指定字号，如果需要的话
+    
+    //按钮 （可选）
+    button: [
+        {
+            classname: 'CLASSNAME',
+            id: 'ID',
+            value: '文本',
+            type: '调用内置方法',
+            callback: '定义按钮点击的行为，会被type属性覆盖'
+        }
+    ];
+    nobutton: true //如果未设置button，icon属性为ok/alert/error的对话框会自动生成按钮，本属性设为true可以禁用
+    
+});
+
+<br>//自定义对话框模板<br>var mydialog = VUI.dialog({<br>    tpl: function(){<br>        var _tpl = <br>        '&lt;div class=&quot;dwarp&quot;&gt;'<br>+            '&lt;div class=&quot;dhead&quot;&gt;'<br>+                '&lt;h2 class=&quot;title&quot;&gt;&lt;span class=&quot;inner&quot;&gt;'<br>+                    (this.title ? this.title : '对话框')<br>+                '&lt;/span&gt;&lt;/h2&gt;'<br>+                '&lt;div class=&quot;extra&quot;&gt;'<br>+                    (this.shut === 'no' ? '' : '&lt;a class=&quot;vui-dialog-close&quot; href=&quot;javascript:void(0)&quot;&gt;关闭&lt;/a&gt;')<br>+                '&lt;/div&gt;'<br>+            '&lt;/div&gt;'<br>+            '&lt;div class=&quot;dbody&quot; style=&quot;padding:' + (this.padding || '10px') + '&quot;&gt;&lt;div class=&quot;clearfix vui-dialog-content&quot;&gt;'<br>+            '&lt;/div&gt;&lt;/div&gt;'<br>+        '&lt;/div&gt;';<br>        return _tpl;<br>    }<br>});
+
+//调用相关方法：
+
+mydialog.close(); //关闭对话框
+mydialog.confirm(); //调用confirm
+mydialog.submit(); //提交对话框中的第一个form表单
+mydialog.position(); //重新设置对话框的位置（在改变了对话框内容致使尺寸发生变化时比较有用）
+
+
+</pre>
+</div>
+
+<div style="clear:both;padding:0 50px 50px;">
+    <p>VUI.ajax()调用方法： </p>
+    <p>&nbsp;</p>
+<pre>
+VUI.ajax({
+    method: 'get', //请求方式，默认为get，可选post
+    url: '', //请求地址，留空为当前路径
+    data: 'key=value&key2=value2', //发送的数据，为字符串，可使用serialize()函数直接序列化表单
+    dataType: 'json', //数据类型，默认为text，可选json/xml
+    cache: false, //如需禁用缓存需设置
+    success: function(data){
+        do something...
+    }, //成功后的操作
+    error: function(msg){
+        do something...
+    } //请求失败的处理
+});
+
+
+</pre>
+</div>
+
+<div style="clear:both;padding:0 50px 50px;">
+    <p>VUI.get()调用方法： </p>
+    <p>&nbsp;</p>
+<pre>
+VUI.get(url, function(callback){
+    do something...
+});
+</pre>
+</div>
+
+
+
+<script type="text/javascript">
+// 测试
+
+VUI.q('a')[0].onclick = function(){
+    var mydialog = VUI.dialog({
+        title: this.title,
+        mask: 'yes',
+        icon: 'alert',
+        content: '修改失败，请重新输入或联系管理员！',
+        fontSize: '14px'
+    });
+    
+    this.blur();
+
+    return false;
+}
+
+//VUI.q('a')[0].click();
+
+VUI.q('a')[1].onclick = function(){
+    var mydialog = VUI.dialog({
+        title: this.title,
+        mask: 'yes',
+        source: 'ajaxdata/dialog.html'
+    });
+    
+    this.blur();
+
+    return false;
+}
+
+VUI.q('a')[2].onclick = function(){
+    VUI.get('ajaxdata/dialog.html', function(callback){
+        VUI.dialog({
+            title: this.title,
+            mask: 'yes',
+            content: callback
+        });
+    });
+    
+    this.blur();
+
+    return false;
+}
+
+</script>
+</body>
+</html>

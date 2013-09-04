@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+.vui-mask {
+	position:absolute;
+	top:0;
+	left:0;
+	background:#000;
+	opacity:.5;
+	z-index:50
+}
+.vui-dialog {
+	position:fixed;
+	z-index:51;
+	background:#cecece;
+	padding:4px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	font-size:12px
+}
+.vui-dialog .dwarp {
+	background:#fff;
+	border:1px solid #999;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px
+}
+.vui-dialog .dhead {
+	border-bottom:1px #cecece solid;
+	position:relative
+}
+.vui-dialog .dhead .title {
+	font-weight:100;
+	padding:8px 25px 8px 15px
+}
+.vui-dialog .dhead .extra {
+	position:absolute;
+	top:0;
+	right:0
+}
+.vui-dialog .dhead .vui-dialog-close {
+	display:block;
+	width:16px;
+	height:16px;
+	margin:8px;
+	overflow:hidden;
+	background:url(../img/close.png) no-repeat 0 0;
+	text-indent:-9999px
+}
+.vui-dialog .dhead .vui-dialog-close:hover, .vui-dialog .dhead .vui-dialog-close:active {
+	background-position:0 -20px
+}
+.vui-dialog .dbody {
+	border:#fff solid;
+	border-width:1px 0;
+	background:#f5f5f5
+}
+.vui-dialog .withicon .icon {
+	padding:12px;
+	width:48px
+}
+.vui-dialog .withicon .icon i {
+	display:inline-block;
+	width:48px;
+	height:48px;
+	background:url(../img/ok.png) no-repeat 0 0
+}
+.vui-dialog .withicon .text {
+	padding:12px 12px 12px 0
+}
+.vui-dialog .icon-error .icon i {
+	background-image:url(../img/error.png)
+}
+.vui-dialog .icon-alert .icon i {
+	background-image:url(../img/alert.png)
+}
+.vui-dialog .dfoot {
+	border-top:1px #cecece solid;
+	text-align:right;
+	padding:5px
+}
+.btnwrap {
+	display:inline-block;
+	margin-left:5px;
+	padding:4px 12px 3px;
+	border:1px #ddd solid;
+	background:#fcfcfc;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	color:#999
+}
+.btnwrap:hover, .btnwrap:active {
+	text-decoration:none;
+	color:#666;
+	background:#fff
+}
+.btn-positive {
+	background:#1c5fa8;
+	color:#fff;
+	border-color:#333
+}
+.btn-positive:hover, .btn-positive:active {
+	color:#fff;
+	background:#3e8adf
+}
+
