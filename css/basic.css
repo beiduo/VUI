@@ -1,0 +1,60 @@
+ @charset "utf-8";
+/*=====================================
+ * Basic style
+ *=====================================*/
+
+/*= Reset =*/
+section,article,aside,header,footer,nav,dialog,figure,legend{display:block;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,figure{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;empty-cells:show; table-layout:fixed;}
+caption,th{text-align:left;}
+ol,ul{list-style:none;}
+img,fieldset{border:0;}
+*:focus{outline:0;}
+
+/*= Typography =*/
+body,input,button,select,textarea,optgroup{font:100% "Lucida Grande",Helvetica,Arial,sans-serif;}
+code{font-family:Consolas,"Courier New",monospace;}
+body{line-height:1.5;background:#fff;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+
+/*= Common style =*/
+.clearfix{zoom:1;}
+.clearfix:after{content:".";display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
+.clear {clear:both; height:1px; margin-top:-1px; overflow:hidden;}
+span.clearinput{width:0;overflow:hidden;display:inline-block;float:left;}
+input.button,button{cursor:pointer;overflow:visible;/*Fix IE lt 8 bug*/}
+textarea{overflow:auto;/*Hide the scrollbar for IE*/}
+label[for]{cursor:pointer;}
+a{cursor:pointer;text-decoration:none;}
+a:hover,a:active{text-decoration:underline;}
+.fl {float:left;_display:inline;}
+.fr {float:right;_display:inline;}
+.hide{display:none;}
+.show{display:block;}
+
+.radiofix{vertical-align:middle;margin-top:-2px;margin-bottom:1px;}
+
+
+::-webkit-input-placeholder{color:#999;}
+input:-moz-placeholder,textarea:-moz-placeholder{color:#999;}
+
+.simsun{font-family:"Simsun";}
+
+.grey{color:#999;}
+.darkgrey{color:#555;}
+.red{color:#f00;}
+.blue{color:#36c;}
+.green{color:#3aa000;}
+.yellow{color:#DA6100;}
+.orange{color:#f60;}
+.bling{color:#FFEA00;}
+
+.large{font-size:117%;}
+.larger{font-size:133%;}
+.larger2{font-size:150%;}
+.larger3{font-size:183%;}
+.linethrough{text-decoration:line-through;}
+.underline{text-decoration:underline;}
+
+.aligncenter{text-align:center;}
