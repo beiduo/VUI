@@ -295,15 +295,18 @@ VUI.q = window.Sizzle;
 // IE检测
 VUI.testIE = function(){
     if (document.addEventListener){
-        return 100;
-    } else {
-        if (!window.XMLHttpRequest){
-            return 6;
-        }
-        if (attachEvent){
-            return 8;
-        }
+        return 9;
     }
+    if (document.querySelector !== 'undefined'){
+    	return 8;
+    }
+    if (window.XMLHttpRequest){
+    	return 7;
+    }
+    if (attachEvent){
+    	return 6;
+    }
+    return false;
 }
 
 // 事件绑定
