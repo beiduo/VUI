@@ -293,11 +293,11 @@ var VUI = {};
 VUI.q = window.Sizzle;
 
 // IE检测
-VUI.testIE = function(){
+function testIE(){
     if (document.addEventListener){
         return 9;
     }
-    if (document.querySelector !== 'undefined'){
+    if (document.querySelector){
     	return 8;
     }
     if (window.XMLHttpRequest){
