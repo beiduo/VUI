@@ -293,7 +293,7 @@ var VUI = {};
 VUI.q = window.Sizzle;
 
 // IE检测
-function testIE(){
+VUI.testIE = function(){
     if (document.addEventListener){
         return 9;
     }
